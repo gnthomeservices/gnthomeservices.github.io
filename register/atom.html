@@ -1,0 +1,27 @@
+---
+layout: feed
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Register For Services</title>
+	<link href="https://gnthomeservices.github.io/Register/atom.xml" rel="self"/>
+	<link href="https://gnthomeservices.github.io/Register"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>https://gnthomeservices.github.io/Register</id>
+	<author>
+		<name>G&T Home Services</name>
+		<email>gnthomeservices@gmail.com</email>
+	</author>
+
+	{% for post in site.posts %}
+		<entry>
+			<title>{{ post.title }}</title>
+			<link href="https://gnthomeservices.github.io/{{ post.url }}"/>
+			<updated>{{ post.date | date_to_xmlschema }}</updated>
+			<id>https://gnthomeservices.github.io/{{ post.id }}</id>
+			<content type="html">{{ post.content | xml_escape }}</content>
+		</entry>
+	{% endfor %}
+
+</feed>
